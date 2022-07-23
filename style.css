@@ -3,6 +3,9 @@
     margin: 0 auto;
     background-color: whitesmoke;
     padding: 30px;
+
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
