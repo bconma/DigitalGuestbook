@@ -7,15 +7,20 @@
 </head>
 
 <body>
-    <div id="upload">
-        <h1>Take a picture :)</h1>
-        <input type="file" onchange="uploadFile(event)" />
+    <div id="content">
+        <div id="upload">
+            <h1>Take a picture :)</h1>
+            <input type="button" value="Send a picture" onclick="document.getElementById('fileInput').click();" />
+            <input type="file" style="display:none;" id="fileInput" name="file" onchange="uploadFile(event)"
+                capture="user" accept="image/*" />
+        </div>
+        <div id="thankyou" class="hidden">
+            <h1>Thanks!</h1>
+            <span id="uploadingText">Uploading :)</span>
+            <br />
+            <img id="uploadPreview" src="" />
+        </div>
     </div>
-    <div id="thankyou" class="hidden">
-        <h1>Thanks!</h1>
-        <img id="uploadPreview" src="" />
-    </div>
-
 </body>
 
 </html>

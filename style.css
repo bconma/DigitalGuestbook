@@ -7,6 +7,21 @@
     text-align: center;
 }
 
-h1 {
+body {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#content {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    padding: 30px;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+
+#uploadingText {
+    font-style: italic;
 }
