@@ -1,13 +1,24 @@
 let upload = new Upload({ apiKey: "public_12a1xnU6fR7pUFPnr9AJtSE7R37d" });
 let uploadImage = upload.createFileInputHandler({
-    // onBegin: startUploading(),
+    onBegin: () => {
+        startUploading();
+    },
     onUploaded: ({ fileUrl, fileId }) => {
         showPreview(fileUrl);
+        finishedUploading();
     },
     onProgress: ({ bytesSent, bytesTotal }) => {
         updateProgress(100 * bytesSent / bytesTotal);
     },
 });
+
+function startUploading() {
+    document.getElementById("submitBtn").disabled = true;
+}
+
+function finishedUploading() {
+    document.getElementById("submitBtn").disabled = false;
+}
 
 function showPreview(fileUrl) {
     document.getElementById("uploadPreview").setAttribute("src", fileUrl + "/thumbnail");
@@ -28,9 +39,15 @@ function updateProgress(percent) {
 function handleSendMessage() {
     let msgFile = generateMessageFile();
 
-    upload.uploadFile({
-        file: msgFile,
-        onUploaded: showThankyou()
+    document.getElementById("submitBtn").disabled = true;
+
+    let promise = upload.uploadFile({
+        file: msgFile
+    });
+
+    promise.then(() => {
+        showThankyou();
+        document.getElementById("submitBtn").disabled = false;
     });
 
 }
