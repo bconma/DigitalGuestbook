@@ -1,6 +1,6 @@
-var upload = new Upload({ apiKey: "public_12a1xnU6fR7pUFPnr9AJtSE7R37d" });
-var uploadFile = upload.createFileInputHandler({
-    onBegin: showThankyou,
+let upload = new Upload({ apiKey: "public_12a1xnU6fR7pUFPnr9AJtSE7R37d" });
+let uploadImage = upload.createFileInputHandler({
+    // onBegin: startUploading(),
     onUploaded: ({ fileUrl, fileId }) => {
         showPreview(fileUrl);
     },
@@ -9,17 +9,44 @@ var uploadFile = upload.createFileInputHandler({
     },
 });
 
+function showPreview(fileUrl) {
+    document.getElementById("uploadPreview").setAttribute("src", fileUrl + "/thumbnail");
+    document.getElementById("uploadPreview").className = "";
+    document.getElementById("captureBtn").setAttribute("value", `Re-take Picture`);
+}
+
 function showThankyou() {
     document.getElementById("upload").className = "hidden";
-    document.getElementById("uploadingText").className = "";
     document.getElementById("thankyou").className = "";
 }
 
-function showPreview(fileUrl) {
-    document.getElementById("uploadPreview").setAttribute("src", fileUrl);
-    document.getElementById("uploadingText").className = "hidden";
+function updateProgress(percent) {
+    percent = Math.floor(percent);
+    document.getElementById("captureBtn").setAttribute("value", `Loading (${percent}%)`);
 }
 
-function updateProgress(percent) {
-    document.getElementById("uploadProgress").innerText = `${percent.toFixed(1)}%`;
+function handleSendMessage() {
+    let msgFile = generateMessageFile();
+
+    upload.uploadFile({
+        file: msgFile,
+        onUploaded: showThankyou()
+    });
+
+}
+
+function generateMessageFile() {
+    timestamp = Date.now();
+    msgObj = {
+        fileUrl: document.getElementById("uploadPreview").getAttribute("src"),
+        message: document.getElementById("messageText").value,
+        timestamp: timestamp
+    };
+
+    let blob = new Blob([JSON.stringify(msgObj, null, 2)],
+        { type: "text/plain;charset=utf-8" });
+
+    let file = new File([blob], `${timestamp}.json`);
+
+    return file;
 }

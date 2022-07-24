@@ -3,6 +3,7 @@
     margin: 0 auto;
     background-color: whitesmoke;
     padding: 30px;
+    border-radius: 5px;
 
     -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
@@ -28,15 +29,17 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
-
+#uploadPreview {
+    width: 100%;
+}
 
 body {
     background-color: blanchedalmond;
 }
 
-/* #uploadingText {
-    font-style: italic;
-} */
+#messageText {
+    width: 100%;
+}

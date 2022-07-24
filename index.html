@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>J&N Digital Guestbook</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://js.upload.io/upload-js/v1"></script>
     <script src="main.js"></script>
@@ -12,19 +12,26 @@
 <body>
     <div id="content">
         <div id="upload">
-            <h1>Take a picture :)</h1>
-            <input type="button" value="Send a picture" onclick="document.getElementById('fileInput').click();" />
-            <input type="file" style="display:none;" id="fileInput" name="file" onchange="uploadFile(event)"
-                capture="user" accept="image/*" />
-        </div>
-        <div id="thankyou" class="hidden">
-            <h1>Thanks!</h1>
-            <div id="uploadingText">
-                Uploading (<span id="uploadProgress">0</span>)
-            </div>
+            <h1>Send us a note :)</h1>
+            <img id="uploadPreview" src="" class="hidden" />
+            <input id="captureBtn" type="button" value="Take a picture"
+                onclick="document.getElementById('fileInput').click();" />
+            <!-- Add camera icon -->
 
             <br />
-            <img id="uploadPreview" src="" />
+
+            <input type="file" class="hidden" id="fileInput" name="file" onchange="uploadImage(event)" capture="user"
+                accept="image/*" />
+            <br>
+            <br>
+            <textarea id="messageText" rows="6" placeholder="Leave a message"></textarea>
+            <br><br>
+            <input type="button" value="Send" onclick="handleSendMessage()">
+
+        </div>
+        <div id="thankyou" class="hidden">
+            <h1>Sent! Thank you</h1>
+
         </div>
     </div>
 </body>
