@@ -3,7 +3,10 @@ var uploadFile = upload.createFileInputHandler({
     onBegin: showThankyou,
     onUploaded: ({ fileUrl, fileId }) => {
         showPreview(fileUrl);
-    }
+    },
+    onProgress: ({ bytesSent, bytesTotal }) => {
+        updateProgress(100 * bytesSent / bytesTotal);
+    },
 });
 
 function showThankyou() {
@@ -15,4 +18,8 @@ function showThankyou() {
 function showPreview(fileUrl) {
     document.getElementById("uploadPreview").setAttribute("src", fileUrl);
     document.getElementById("uploadingText").className = "hidden";
+}
+
+function updateProgress(percent) {
+    document.getElementById("uploadProgress").innerText = `${percent.toFixed(1)}%`;
 }
