@@ -10,10 +10,10 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     #content {
-        width: 100%;
-        margin: 0;
+        margin: 10px;
+        max-width: none;
     }
 }
 
@@ -30,15 +30,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     margin-top: 10px;
+    background-color: blanchedalmond;
 }
 
 #uploadPreview {
     width: 100%;
 }
 
-body {
-    background-color: blanchedalmond;
-}
 
 #messageText {
     width: 100%;
