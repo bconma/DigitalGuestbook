@@ -57,6 +57,7 @@ function generateMessageFile() {
     msgObj = {
         fileUrl: document.getElementById("uploadPreview").getAttribute("src"),
         message: document.getElementById("messageText").value,
+        name: document.getElementById("nameText").value,
         timestamp: timestamp
     };
 
