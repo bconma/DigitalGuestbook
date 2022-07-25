@@ -3,8 +3,10 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>J&N Digital Guestbook</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif" media="all">
     <script src="https://js.upload.io/upload-js/v1"></script>
     <script src="main.js"></script>
 </head>
@@ -12,16 +14,35 @@
 <body>
     <div id="content">
         <div id="upload">
-            <h1>Take a picture :)</h1>
-            <input type="button" value="Send a picture" onclick="document.getElementById('fileInput').click();" />
-            <input type="file" style="display:none;" id="fileInput" name="file" onchange="uploadFile(event)"
-                capture="user" accept="image/*" />
+            <h1>JASMINE AND NIGEL'S GUESTBOOK</h1>
+            <hr>
+
+            <p>
+                Thank you for visiting our digital guestbook! Take a picture and leave a note for us. We'll be adding
+                the pictures live to the photo-wall!
+            </p>
+
+            <img id="uploadPreview" src="" class="hidden" />
+            <input id="captureBtn" type="button" value="Take a picture"
+                onclick="document.getElementById('fileInput').click();" />
+            <!-- Add camera icon -->
+
+            <input type="file" class="hidden" id="fileInput" name="file" onchange="uploadImage(event)" capture="user"
+                accept="image/*" />
+            <textarea id="messageText" rows="6" placeholder="Your message"></textarea>
+
+            <input id="nameText" type="text" placeholder="Your name">
+            <input id="submitBtn" type="button" value="Send" onclick="handleSendMessage()">
+
         </div>
         <div id="thankyou" class="hidden">
-            <h1>Thanks!</h1>
-            <span id="uploadingText">Uploading :)</span>
-            <br />
-            <img id="uploadPreview" src="" />
+            <h1>Thank you</h1>
+
+            <p>Message recieved! If you see a friend without a phone or struggling with the QR code, help them out :)
+                You can refresh the page to help them submit from your phone.</p>
+
+
+
         </div>
     </div>
 </body>
