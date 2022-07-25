@@ -42,6 +42,7 @@ h1 {
 
 p {
     line-height: 1.6;
+    color: #404040;
 }
 
 body {
@@ -84,16 +85,17 @@ body {
     margin: 25px auto;
 
     background-color: #e5ecff;
-    border: 1px solid #1652F0;
-    color: black;
+    border: 1px solid rgb(46 71 147);
+    color: rgb(46 71 147);
+    ;
 }
 
 #submitBtn {
     display: block;
     margin-left: auto;
 
-    background-color: #1652F0;
-    border: 1px solid #1652F0;
+    background-color: rgb(46 71 147);
+    border: 1px solid rgb(46 71 147);
     color: #FFFFFF;
 }
 
