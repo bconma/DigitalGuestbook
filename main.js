@@ -40,6 +40,7 @@ function handleSendMessage() {
     let msgFile = generateMessageFile();
 
     document.getElementById("submitBtn").disabled = true;
+    document.getElementById("submitBtn").value = "Sending";
 
     let promise = upload.uploadFile({
         file: msgFile
@@ -48,8 +49,10 @@ function handleSendMessage() {
     promise.then(() => {
         showThankyou();
         document.getElementById("submitBtn").disabled = false;
+        document.getElementById("submitBtn").value = "Send";
     });
 
+    return false;
 }
 
 function generateMessageFile() {

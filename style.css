@@ -19,6 +19,15 @@
         margin: 10px;
         max-width: none;
     }
+
+    #submitBtn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #captureBtn {
+        width: 100%;
+    }
 }
 
 .hidden {
@@ -65,10 +74,13 @@ body {
     border-style: solid;
 }
 
+
 #uploadPreview {
     width: 100%;
     margin-top: 25px;
     max-width: 100%;
+    max-height: 450px;
+    object-fit: contain;
     text-align: center;
 }
 
@@ -90,17 +102,32 @@ body {
     ;
 }
 
-#submitBtn {
-    display: block;
-    margin-left: auto;
+#captureBtn:active {
+    background-color: #dde6ff;
+}
 
+#submitBtn,
+#sendAnotherBtn {
+    margin-left: auto;
+    display: block;
     background-color: rgb(46 71 147);
     border: 1px solid rgb(46 71 147);
     color: #FFFFFF;
 }
 
+#sendAnotherBtn {
+    margin-right: auto;
+}
+
+#submitBtn:active,
+#sendAnotherBtn:active {
+    background-color: rgb(34 54 112);
+    border: 1px solid rgb(34 54 112);
+}
+
 #submitBtn,
-#captureBtn {
+#captureBtn,
+#sendAnotherBtn {
     appearance: button;
     border-radius: 4px;
     box-sizing: border-box;
@@ -118,7 +145,6 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: fit-content;
 }
 
 #submitBtn:disabled,
@@ -126,9 +152,18 @@ body {
     opacity: .5;
 }
 
+#sendAnotherBtn:focus,
 #submitBtn:focus,
 #captureBtn:focus,
-#msgText:focus,
+#messageText:focus,
 #nameText:focus {
-    outline: 0;
+    outline: 0px;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
