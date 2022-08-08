@@ -29,18 +29,21 @@
 
             <input type="file" class="hidden" id="fileInput" name="file" onchange="uploadImage(event)" capture="user"
                 accept="image/*" />
-            <textarea id="messageText" rows="6" placeholder="Your message"></textarea>
 
-            <input id="nameText" type="text" placeholder="Your name">
-            <input id="submitBtn" type="button" value="Send" onclick="handleSendMessage()">
+            <form action="#" onsubmit="handleSendMessage();">
+                <textarea id="messageText" rows="6" placeholder="Your message"></textarea>
+                <input id="nameText" type="text" placeholder="Your name" required>
+                <input id="submitBtn" type="submit" value="Send">
+            </form>
 
         </div>
         <div id="thankyou" class="hidden">
             <h1>Thank you</h1>
 
             <p>Message received! If you see a friend without a phone or struggling with the QR code, help them out :)
-                You can refresh the page to help them submit from your phone.</p>
-
+            </p>
+            <br>
+            <button id="sendAnotherBtn" onClick="window.location.reload();">Refresh</button>
 
 
         </div>

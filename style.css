@@ -79,6 +79,8 @@ body {
     width: 100%;
     margin-top: 25px;
     max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
     text-align: center;
 }
 
@@ -104,7 +106,8 @@ body {
     background-color: #dde6ff;
 }
 
-#submitBtn {
+#submitBtn,
+#sendAnotherBtn {
     margin-left: auto;
     display: block;
     background-color: rgb(46 71 147);
@@ -112,13 +115,19 @@ body {
     color: #FFFFFF;
 }
 
-#submitBtn:active {
+#sendAnotherBtn {
+    margin-right: auto;
+}
+
+#submitBtn:active,
+#sendAnotherBtn:active {
     background-color: rgb(34 54 112);
     border: 1px solid rgb(34 54 112);
 }
 
 #submitBtn,
-#captureBtn {
+#captureBtn,
+#sendAnotherBtn {
     appearance: button;
     border-radius: 4px;
     box-sizing: border-box;
@@ -143,11 +152,12 @@ body {
     opacity: .5;
 }
 
+#sendAnotherBtn:focus,
 #submitBtn:focus,
 #captureBtn:focus,
-#msgText:focus,
+#messageText:focus,
 #nameText:focus {
-    outline: 0;
+    outline: 0px;
 }
 
 input,

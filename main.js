@@ -51,7 +51,6 @@ function handleSendMessage() {
         document.getElementById("submitBtn").disabled = false;
         document.getElementById("submitBtn").value = "Send";
     });
-
 }
 
 function generateMessageFile() {
